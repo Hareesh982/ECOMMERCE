@@ -11,7 +11,7 @@ const InitialState = {
 const cartReducer = (state = InitialState,action) => {
     switch(action.type){
         case 'ADD_TO_CART' : 
-            const existingItemIndex = state.cartItems.findItems(item => item.id === action.payload.id);
+            const existingItemIndex = state.cartItems.findIndex(item => item.id === action.payload.id);
             if(existingItemIndex !== -1){
                 const updateCartItems = state.cartItems.map((item,index) => {
                     if(index === existingItemIndex){

@@ -1,7 +1,15 @@
 import React from 'react'
 import './productdetails.css'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../actions/cartActions'
 
 function ProductDetails({product}) {
+    
+    let dispatch = useDispatch()
+    let handleCart = () => {
+            dispatch(addToCart(product))
+            alert("item added to cart")
+        }
     return (
         <>
         <section id="product-info">
@@ -29,7 +37,7 @@ function ProductDetails({product}) {
                     {product.description}
                 </div>
                 <div>
-                    <button className='product-details-button'>Add to cart</button><br/>
+                    <button className='product-details-button' onClick={handleCart}>Add to cart</button><br/>
                     <button className='product-details-button'>Buy now</button>
                 </div>
             </div>
